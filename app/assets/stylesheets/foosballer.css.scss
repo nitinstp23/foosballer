@@ -24,6 +24,11 @@ a.active {
   color: #18bc9c;
 }
 
+a.list-group-item {
+  border: none;
+  text-align: center;
+}
+
 h1,
 h2,
 h3,
@@ -31,8 +36,7 @@ h4,
 h5,
 h6 {
   text-transform: uppercase;
-  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-weight: 700;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .img-centered {
@@ -41,7 +45,7 @@ h6 {
 
 .navbar {
   text-transform: uppercase;
-  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: 700;
 
   a:focus {
@@ -66,7 +70,6 @@ section {
   width: 100%;
   height: 100%;
   position: absolute;
-  text-align: center;
   background: #fff;
   padding: 100px 0;
 }
@@ -78,13 +81,14 @@ footer {
   color: #fff;
 
   .footer-below {
-    padding: 25px 0;
+    padding: 10px 0;
     background-color: #233140;
   }
 }
 
 #new_tournament {
   text-align: center;
+
   a {
     padding: 14px 24px;
     font-size: 21px;
