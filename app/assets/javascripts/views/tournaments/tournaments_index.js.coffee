@@ -7,6 +7,5 @@ class Foosballer.Views.TournamentsIndex extends Backbone.View
     @collection.fetch(success: @render)
 
   render: ->
-    console.log @collection
     $(@el).html(@template(tournaments: @collection))
     this

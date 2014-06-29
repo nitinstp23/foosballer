@@ -5,7 +5,6 @@ class Foosballer.Collections.Tournaments extends Backbone.Collection
   model: Foosballer.Models.Tournament
 
   parse: (response) ->
-    console.log response.tournaments
     response.tournaments
 
   in_groups_of: (n) ->
