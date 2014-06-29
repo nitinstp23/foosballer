@@ -1,139 +1,19 @@
-<!-- Row 1 -->
-<div class='row'>
-  <div class='col-md-4'>
-    <div class="list-group">
-      <a href="#" class="list-group-item">
-        <h4>List group item heading</h4>
-      </a>
-    </div>
+<% for tournament_group in @tournaments.in_groups_of(3): %>
+
+  <div class='row'>
+
+    <% for tournament in tournament_group: %>
+
+      <div class='col-md-4'>
+        <div class="list-group">
+          <a href="#" class="list-group-item">
+            <h4>Foosball <%= tournament.get('id') %> : <%= tournament.get('played_on') %></h4>
+          </a>
+        </div>
+      </div>
+
+    <% end %>
+
   </div>
 
-  <div class='col-md-4'>
-    <div class="list-group">
-      <a href="#" class="list-group-item">
-        <h4>List group item heading</h4>
-      </a>
-    </div>
-  </div>
-
-  <div class='col-md-4'>
-    <div class="list-group">
-      <a href="#" class="list-group-item">
-        <h4>List group item heading</h4>
-      </a>
-    </div>
-  </div>
-</div>
-<!-- Row 1 -->
-
-<!-- Row 2 -->
-<div class='row'>
-  <div class='col-md-4'>
-    <div class="list-group">
-      <a href="#" class="list-group-item">
-        <h4>List group item heading</h4>
-      </a>
-    </div>
-  </div>
-
-  <div class='col-md-4'>
-    <div class="list-group">
-      <a href="#" class="list-group-item">
-        <h4>List group item heading</h4>
-      </a>
-    </div>
-  </div>
-
-  <div class='col-md-4'>
-    <div class="list-group">
-      <a href="#" class="list-group-item">
-        <h4>List group item heading</h4>
-      </a>
-    </div>
-  </div>
-</div>
-<!-- Row 2 -->
-
-<!-- Row 3 -->
-<div class='row'>
-  <div class='col-md-4'>
-    <div class="list-group">
-      <a href="#" class="list-group-item">
-        <h4>List group item heading</h4>
-      </a>
-    </div>
-  </div>
-
-  <div class='col-md-4'>
-    <div class="list-group">
-      <a href="#" class="list-group-item">
-        <h4>List group item heading</h4>
-      </a>
-    </div>
-  </div>
-
-  <div class='col-md-4'>
-    <div class="list-group">
-      <a href="#" class="list-group-item">
-        <h4>List group item heading</h4>
-      </a>
-    </div>
-  </div>
-</div>
-<!-- Row 3 -->
-
-<!-- Row 4 -->
-<div class='row'>
-  <div class='col-md-4'>
-    <div class="list-group">
-      <a href="#" class="list-group-item">
-        <h4>List group item heading</h4>
-      </a>
-    </div>
-  </div>
-
-  <div class='col-md-4'>
-    <div class="list-group">
-      <a href="#" class="list-group-item">
-        <h4>List group item heading</h4>
-      </a>
-    </div>
-  </div>
-
-  <div class='col-md-4'>
-    <div class="list-group">
-      <a href="#" class="list-group-item">
-        <h4>List group item heading</h4>
-      </a>
-    </div>
-  </div>
-</div>
-<!-- Row 4 -->
-
-<!-- Row 4 -->
-<div class='row'>
-  <div class='col-md-4'>
-    <div class="list-group">
-      <a href="#" class="list-group-item">
-        <h4>List group item heading</h4>
-      </a>
-    </div>
-  </div>
-
-  <div class='col-md-4'>
-    <div class="list-group">
-      <a href="#" class="list-group-item">
-        <h4>List group item heading</h4>
-      </a>
-    </div>
-  </div>
-
-  <div class='col-md-4'>
-    <div class="list-group">
-      <a href="#" class="list-group-item">
-        <h4>List group item heading</h4>
-      </a>
-    </div>
-  </div>
-</div>
-<!-- Row 4 -->
+<% end %>

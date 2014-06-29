@@ -4,8 +4,8 @@ window.Foosballer =
   Views: {}
   Routers: {}
   initialize: ->
-    new Foosballer.Routers.Tournaments()
-    Backbone.history.start()#(pushState: true)
+    @router = new Foosballer.Routers.Tournaments()
+    Backbone.history.start()
 
 $(document).ready ->
   Foosballer.initialize()
