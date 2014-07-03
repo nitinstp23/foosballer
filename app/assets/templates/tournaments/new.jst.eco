@@ -1,0 +1,6 @@
+<div class='row'>
+  <form id='new_tournament'>
+    <input type='text' name='name' id='new_tournament_name'>
+    <input type='submit' value='Create'>
+  </form>
+</div>

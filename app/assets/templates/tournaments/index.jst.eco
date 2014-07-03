@@ -1,3 +1,11 @@
+<div class='panel'>
+  <div class='panel-heading' id='new_tournament'>
+    <button id='new_tournament_link' class='btn btn-lg btn-success'>
+      New Tournament
+    </button>
+  </div>
+</div>
+
 <% for tournament_group in @tournaments.in_groups_of(3): %>
 
   <div class='row'>
