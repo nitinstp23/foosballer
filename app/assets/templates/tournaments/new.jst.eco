@@ -1,6 +1,39 @@
-<div class='row'>
-  <form id='new_tournament'>
-    <input type='text' name='name' id='new_tournament_name'>
-    <input type='submit' value='Create'>
-  </form>
+<div class='create-teams-button'>
+  <button id='create_teams_link' class='btn btn-lg'>
+    Create Teams
+  </button>
+</div>
+
+<div class='new_tournament_panel'>
+
+  <div id='all-players' class='panel panel-default pull-left'>
+    <div class='panel-heading'>
+      <h3 class='panel-title'>
+        All Players <span class='badge'>42</span>
+      </h3>
+    </div>
+
+    <div class='panel-body'>
+      <div class='row'>
+        <div class='col-xs-6 col-md-4 player'>
+          <a href='#' class='thumbnail'>
+            <img src='/assets/avatar_default.png' alt='Avatar' height='100' width='100'>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id='current-pool' class='panel panel-default pull-right'>
+    <div class='panel-heading'>
+      <h3 class='panel-title'>
+        Tournament Pool <span class='badge'>42</span>
+      </h3>
+    </div>
+
+    <div class='panel-body'>
+      <div class='row'></div>
+    </div>
+  </div>
+
 </div>

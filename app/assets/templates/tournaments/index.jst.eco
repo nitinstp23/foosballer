@@ -1,6 +1,6 @@
 <div class='panel'>
-  <div class='panel-heading' id='new_tournament'>
-    <button id='new_tournament_link' class='btn btn-lg btn-success'>
+  <div class='panel-heading new-tournament-button'>
+    <button id='new_tournament_link' class='btn btn-lg'>
       New Tournament
     </button>
   </div>

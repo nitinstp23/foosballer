@@ -1,3 +1,5 @@
+$bg_color : #5bc0de;
+
 html {
   position: relative;
   min-height: 100%;
@@ -16,12 +18,14 @@ p {
 }
 
 a,
-a:hover,
 a:focus,
 a:active,
 a.active {
   outline: 0;
-  color: #18bc9c;
+}
+
+a:hover {
+  color: orange !important;
 }
 
 a.list-group-item {
@@ -45,11 +49,17 @@ h6 {
 
 .navbar {
   text-transform: uppercase;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: sans-serif;
   font-weight: 700;
 
   a:focus {
     outline: 0;
+  }
+
+  .navbar-brand {
+    padding: 0;
+    padding-top: 5px;
+    font-size: 18px;
   }
 
   .navbar-nav {
@@ -63,6 +73,7 @@ h6 {
 
 .navbar-default,
 .navbar-inverse {
+  background-color: $bg_color;
   border: 0;
 }
 
@@ -72,6 +83,7 @@ section {
   position: absolute;
   background: #fff;
   padding: 100px 0;
+  margin-top: -20px;
 }
 
 footer {
@@ -81,15 +93,19 @@ footer {
   color: #fff;
 
   .footer-below {
-    padding: 10px 0;
-    background-color: #233140;
+    padding: 1px 0;
+    background-color: $bg_color;
+    font-size: 14px;
   }
 }
 
-#new_tournament {
+.new-tournament-button {
   text-align: center;
 
   button {
+    background-color: orange;
+    border-color: orange;
+    color: whitesmoke;
     padding: 14px 24px;
     font-size: 21px;
   }
@@ -97,4 +113,63 @@ footer {
 
 .hidden {
   display: none;
+}
+
+.new_tournament_panel {
+  width: 100%;
+  margin: auto;
+
+  .panel {
+    width: 40%;
+    height: auto;
+    min-height: 150px;
+    margin: auto;
+    text-align: center;
+    border-color: #ccc;
+
+    .panel-heading {
+      background-color: #ccc;
+      border-color: #ccc;
+
+      .panel-title {
+        color: whitesmoke;
+        .badge {
+          background-color: #fff;
+          color: black;
+          margin-left: 2px;
+        }
+      }
+    }
+
+    .panel-body {
+      padding-top: 5px;
+
+      .row {
+        margin: 15px 0 0 0;
+      }
+    }
+  }
+}
+
+.player {
+  height: 100px;
+  width: 100px;
+
+  a:hover {
+    cursor: move;
+    border-color: orange;
+  }
+}
+
+.create-teams-button {
+  text-align: center;
+  margin-bottom: 20px;
+
+  button {
+    background-color: orange;
+    border-color: orange;
+    color: whitesmoke;
+    padding: 14px 24px;
+    font-size: 18px;
+  }
 }

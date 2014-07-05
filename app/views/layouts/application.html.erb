@@ -10,16 +10,17 @@
   </head>
 
   <body id="page-top" class="index">
-
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
-          <a class="navbar-brand" href="#page-top">Foosballer</a>
+          <a class="navbar-brand">
+            <%= image_tag 'logo.png', size: '45x45' %> Foosballer
+          </a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="page-scroll">
               <a href="#login">Login</a>
@@ -45,11 +46,11 @@
     <!-- Main Content -->
 
     <!-- Footer -->
-    <footer class="text-center">
-      <div class="footer-below">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
+    <footer class='text-center hidden'>
+      <div class='footer-below'>
+        <div class='container'>
+          <div class='row'>
+            <div class='col-lg-12'>
               Copyright &copy; <%= Date.today.year %> - Nitin Misra
             </div>
           </div>

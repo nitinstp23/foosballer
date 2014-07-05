@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui/draggable
+//= require jquery-ui/droppable
 //= require underscore
 //= require backbone
 //= require foosballer

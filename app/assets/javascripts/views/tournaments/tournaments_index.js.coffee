@@ -15,9 +15,8 @@ class Foosballer.Views.TournamentsIndex extends Backbone.View
 
   newTournament: (event)->
     event.preventDefault()
-    view = new Foosballer.Views.TournamentsNew()
-    $('#new_tournament_form').append(view.render().el)
     @hide()
+    TOURNAMENTS_ROUTER.navigate('tournaments/new', trigger: true)
 
   hide: ->
     $(@el).hide()
