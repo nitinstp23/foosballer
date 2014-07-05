@@ -1,7 +1,7 @@
 <div class='panel'>
   <div class='panel-heading new-tournament-button'>
     <button id='new_tournament_link' class='btn btn-lg'>
-      New Tournament
+      NEW TOURNAMENT
     </button>
   </div>
 </div>
