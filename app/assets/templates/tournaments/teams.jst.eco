@@ -1,0 +1,44 @@
+<div class='panel'>
+  <div class='panel-heading create-tournament-button'>
+    <button id='create_tournament_link' class='btn btn-lg'>
+      CREATE TOURNAMENT
+    </button>
+  </div>
+</div>
+
+<div class='create_tournament_panel'>
+  <% for team_group in @teams.in_groups_of(2): %>
+    <div class='row teams-row'>
+      <% for team in team_group: %>
+        <div class='pull-left team'>
+          <div class='panel panel-info'>
+            <div class='panel-heading'>
+              <h3 class='panel-title team-name'>
+                <%= team.get('name') %>
+              </h3>
+            </div>
+            <div class='panel-body'>
+              <div class='col-sm-6 pull-left player-one'>
+                <span class='thumbnail'>
+                  <span class='player-name'>
+                    <%= team.get('players')[0].first_name %>
+                  </span>
+                  <img src='<%= team.get('players')[0].avatar_url %>' height='100' width='100' class='avatar-img'>
+                </span>
+              </div>
+
+              <div class='col-sm-6 pull-right player-two'>
+                <span class='thumbnail'>
+                  <span class='player-name'>
+                    <%= team.get('players')[1].first_name %>
+                  </span>
+                  <img src='<%= team.get('players')[1].avatar_url %>' height='100' width='100' class='avatar-img'>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

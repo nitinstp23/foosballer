@@ -7,6 +7,7 @@ html {
 
 body {
   overflow-x: hidden;
+  font-family: "Comic Sans MS", cursive, sans-serif !important;
 }
 
 p {
@@ -40,7 +41,7 @@ h4,
 h5,
 h6 {
   text-transform: uppercase;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: "Comic Sans MS", cursive, sans-serif !important;
 }
 
 .img-centered {
@@ -49,8 +50,7 @@ h6 {
 
 .navbar {
   text-transform: uppercase;
-  font-family: sans-serif;
-  font-weight: 700;
+  font-family: "Comic Sans MS", cursive, sans-serif !important;
 
   a:focus {
     outline: 0;
@@ -60,6 +60,10 @@ h6 {
     padding: 0;
     padding-top: 5px;
     font-size: 18px;
+
+    .logo-text {
+      font-weight: bold;
+    }
   }
 
   .navbar-nav {
@@ -99,6 +103,7 @@ footer {
   }
 }
 
+.create-tournament-button,
 .new-tournament-button {
   text-align: center;
 
@@ -107,7 +112,7 @@ footer {
     border-color: orange;
     color: whitesmoke;
     padding: 14px 24px;
-    font-size: 21px;
+    font-size: 18px;
   }
 }
 
@@ -150,28 +155,57 @@ footer {
   height: 100px;
   width: 100px;
 
-  a:hover {
+  span:hover {
     cursor: move;
     border-color: orange;
   }
 }
 
-// .player-hover {
-//   a:hover {
-//     cursor: move;
-//     border-color: orange;
-//   }
-// }
-
-.build-teams-button {
+.create-teams-button {
   text-align: center;
-  margin-bottom: 20px;
 
   button {
-    background-color: orange;
-    border-color: orange;
     color: whitesmoke;
     padding: 14px 24px;
     font-size: 18px;
   }
+}
+
+.disabled {
+  background-color: gray;
+  border-color: gray;
+}
+
+.enabled {
+  background-color: orange;
+  border-color: orange;
+}
+
+.team-name {
+  text-align: center;
+}
+
+.teams-row {
+  width: 80%;
+  margin: auto;
+
+  .team {
+    width: 33.333333%;
+  }
+
+  .team:nth-child(1) {
+    margin-right: 33.333333%;
+  }
+}
+
+.thumbnail {
+  text-align: center;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.player-name {
+  font-size: 10px;
 }

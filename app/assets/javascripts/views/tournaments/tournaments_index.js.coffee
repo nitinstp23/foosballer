@@ -1,6 +1,8 @@
 class Foosballer.Views.TournamentsIndex extends Backbone.View
 
-  template: JST['tournaments/index']
+  id:        'tournaments_section'
+  className: 'container'
+  template:  JST['tournaments/index']
 
   events:
     'click #new_tournament_link' : 'newTournament'

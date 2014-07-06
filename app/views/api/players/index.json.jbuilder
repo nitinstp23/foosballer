@@ -1,1 +1,3 @@
-json.players @players, :id, :first_name, :last_name, :email, :avatar_url
+json.players @players do |player|
+  json.partial! player
+end

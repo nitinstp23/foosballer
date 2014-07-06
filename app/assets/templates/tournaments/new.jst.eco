@@ -1,7 +1,7 @@
-<div class='panel'>
-  <div class='panel-heading build-teams-button'>
-    <button id='build_teams_link' class='btn btn-lg'>
-      BUILD TEAMS
+<div class='panel mb-10'>
+  <div class='panel-heading create-teams-button'>
+    <button id='create_teams_link' class='btn btn-lg disabled'>
+      CREATE TEAMS
     </button>
   </div>
 </div>
@@ -20,9 +20,10 @@
         <% for player in @players: %>
 
           <div class='col-xs-6 col-md-4 player'>
-            <a href='#' class='thumbnail'>
-              <img src='<%= player.get('avatar_url') %>' alt='<%= player.name() %>' height='100' width='100'>
-            </a>
+            <span id='<%= player.get('id') %>' class='thumbnail'>
+              <span class='player-name'><%= player.get('first_name') %></span>
+              <img src='<%= player.get('avatar_url') %>' alt='<%= player.name() %>' height='100' width='100' class='avatar-img'>
+            </span>
           </div>
 
         <% end %>
