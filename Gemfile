@@ -19,4 +19,5 @@ group :development, :test do
   gem 'spring'
   gem 'factory_girl_rails', '~> 4.4.1'
   gem 'shoulda-matchers', '~> 2.6.1', require: false
+  gem 'thin'
 end

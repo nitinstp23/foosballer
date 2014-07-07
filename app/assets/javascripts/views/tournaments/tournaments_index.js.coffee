@@ -8,8 +8,11 @@ class Foosballer.Views.TournamentsIndex extends Backbone.View
     'click #new_tournament_link' : 'newTournament'
 
   initialize: ->
-    _.bindAll(this, 'render')
-    @collection.fetch(success: @render)
+    Foosballer.showLoading()
+    @collection.fetch
+      success: =>
+        Foosballer.hideLoading()
+        @render()
 
   render: ->
     $(@el).html(@template(tournaments: @collection))

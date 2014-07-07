@@ -11,7 +11,7 @@ module Api
       if builder.valid?
         @teams = builder.teams
       else
-        render json: { error: I18n.t('errors.messages.invalid_players_count') }, status: 500
+        render json: { error: builder.errors }, status: 500
       end
     end
 

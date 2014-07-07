@@ -6,4 +6,6 @@ en:
       carrierwave_download_error: "Couldn't download image."
       extension_white_list_error: "You are not allowed to upload %{extension} files, allowed types: %{allowed_types}"
       extension_black_list_error: "You are not allowed to upload %{extension} files, prohibited types: %{prohibited_types}"
-      invalid_players_count: 'Players count should be an even integer'
+      tournament:
+        blank_player_ids: 'Player IDs cannot be blank'
+        invalid_player_ids_count: 'Player IDs count should be an even integer'

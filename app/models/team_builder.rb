@@ -1,13 +1,17 @@
 class TeamBuilder
 
-  attr_reader :teams
+  attr_reader :teams, :errors
 
   def initialize(player_ids)
     @player_ids = player_ids || []
+    @errors     = []
   end
 
   def valid?
-    (@player_ids.size > 0) && (@player_ids.size % 2 == 0)
+    validate_player_ids_presence
+    validate_player_ids_count
+
+    errors.empty?
   end
 
   # teams = {
@@ -33,6 +37,16 @@ class TeamBuilder
 
   def fetch_players
     Player.where(id: @player_ids)
+  end
+
+  def validate_player_ids_presence
+    return if @player_ids.size > 0
+    @errors << I18n.t('errors.messages.tournament.blank_player_ids')
+  end
+
+  def validate_player_ids_count
+    return if @player_ids.size % 2 == 0
+    @errors << I18n.t('errors.messages.tournament.invalid_player_ids_count')
   end
 
 end

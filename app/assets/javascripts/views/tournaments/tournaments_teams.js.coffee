@@ -4,14 +4,16 @@ class Foosballer.Views.TournamentsTeams extends Backbone.View
   className: 'container'
   template:  JST['tournaments/teams']
 
-  # events:
-    # 'click #create_tournament_link' : 'buildTeams'
-
   initialize: (player_ids)->
     @teams = new Foosballer.Collections.Teams()
 
-    _.bindAll(this, 'render')
-    @teams.fetch(type: 'POST', data: {player_ids: player_ids}, success: @render)
+    Foosballer.showLoading()
+    @teams.fetch
+      type: 'POST'
+      data: { player_ids: player_ids }
+      success: =>
+        Foosballer.hideLoading()
+        @render()
 
   render: ->
     $(@el).html @template(teams: @teams)
@@ -19,8 +21,3 @@ class Foosballer.Views.TournamentsTeams extends Backbone.View
 
   hide: ->
     $(@el).hide()
-
-  # buildTeams: (event)->
-  #   event.preventDefault()
-  #   @hide()
-  #   TOURNAMENTS_ROUTER.navigate('tournaments/new/teams', trigger: true)

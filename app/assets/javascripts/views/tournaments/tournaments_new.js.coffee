@@ -8,8 +8,11 @@ class Foosballer.Views.TournamentsNew extends Backbone.View
     'click #create_teams_link' : 'buildTeams'
 
   initialize: ->
-    _.bindAll(this, 'render')
-    @collection.fetch(success: @render)
+    Foosballer.showLoading()
+    @collection.fetch
+      success: =>
+        Foosballer.hideLoading()
+        @render()
 
   render: ->
     $(@el).html @template(players: @collection.models)
@@ -19,7 +22,7 @@ class Foosballer.Views.TournamentsNew extends Backbone.View
   hide: ->
     $(@el).hide()
 
-  buildTeams: (event)->
+  buildTeams: (event) ->
     event.preventDefault()
     @hide()
     TOURNAMENTS_ROUTER.navigate('tournaments/new/teams', trigger: true)
