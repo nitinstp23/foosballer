@@ -4,7 +4,10 @@ class Foosballer.Views.TournamentsTeams extends Backbone.View
   className: 'container'
   template:  JST['tournaments/teams']
 
-  initialize: (player_ids)->
+  events:
+    'click #create_tournament_link' : 'createTournament'
+
+  initialize: (player_ids) ->
     @teams = new Foosballer.Collections.Teams()
 
     Foosballer.showLoading()
@@ -21,3 +24,32 @@ class Foosballer.Views.TournamentsTeams extends Backbone.View
 
   hide: ->
     $(@el).hide()
+
+  # teams_attributes:
+  #   name: 'Team One', game_sessions_attributes: [{player_id: 1}, {player_id: 2}]
+  #   name: 'Team Two', game_sessions_attributes: [{player_id: 3}, {player_id: 4}]
+  teamsAttributes: ->
+    attributes = []
+    teams      = $(@el).find('.create_tournament_panel .team')
+    for team in teams
+      players = $(team).find('.player-name')
+      attributes.push
+        name: $(team).find('.team-name')[0].id
+        game_sessions_attributes: [
+          { player_id: players[0].id }
+          { player_id: players[1].id }
+        ]
+    attributes
+
+  createTournament: (event) ->
+    event.preventDefault()
+    Foosballer.showLoading()
+    tournaments = new Foosballer.Collections.Tournaments()
+    tournament_model = new Foosballer.Models.Tournament(teams_attributes: @teamsAttributes())
+
+    tournaments.create(tournament_model,
+      wait : true
+      success: (model, response, options) =>
+        Foosballer.hideLoading()
+        TOURNAMENTS_ROUTER.navigate("tournaments/#{response.id}", trigger: true)
+    )

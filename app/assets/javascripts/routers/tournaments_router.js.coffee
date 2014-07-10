@@ -9,13 +9,13 @@ class Foosballer.Routers.Tournaments extends Backbone.Router
     @mainContainer = $('#main-container')
 
   index: ->
-    @tournaments = new Foosballer.Collections.Tournaments()
-    view = new Foosballer.Views.TournamentsIndex(collection: @tournaments)
+    tournaments = new Foosballer.Collections.Tournaments()
+    view        = new Foosballer.Views.TournamentsIndex(collection: tournaments)
     @mainContainer.html(view.render().el)
 
   new: ->
-    @players = new Foosballer.Collections.Players()
-    view = new Foosballer.Views.TournamentsNew(collection: @players)
+    players = new Foosballer.Collections.Players()
+    view    = new Foosballer.Views.TournamentsNew(collection: players)
     @mainContainer.html(view.render().el)
 
   show: (id) ->

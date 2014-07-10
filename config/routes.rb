@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: 'json'} do
 
-    resources :tournaments, only: [:index] do
+    resources :tournaments, only: [:index, :create, :show] do
       post :create_teams, on: :collection
     end
 
