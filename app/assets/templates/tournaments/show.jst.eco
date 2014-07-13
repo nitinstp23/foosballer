@@ -1,28 +1,38 @@
+<div class='panel mb-10'>
+  <div class='panel-heading create-teams-button'>
+    <button id='create_teams_link' class='btn btn-lg disabled'>
+      Score &amp; Finish
+    </button>
+  </div>
+</div>
 
 <div class='show_tournament_panel'>
 
   <div class='panel panel-default pull-left team-schedule'>
     <div class='panel-heading'>
+      <div class='copy-to-clipboard pull-left'>
+        <a href='javascript:void(0)' id='copySchedule'>Copy</a>
+      </div>
       <h3 class='panel-title'>
         Current Schedule
       </h3>
     </div>
     <div class='panel-body'>
       <ul class='list-group'>
-        <% for i in [1..5]: %>
+        <% for game in @tournament.games(): %>
           <li class='list-group-item'>
-            <span class='game-number pull-left'><%= "#{i})" %></span>
+            <span class='game-number pull-left'><%= "#{game.position})" %></span>
             <span class='teams-row'>
               <select class='score'>
                 <% for i in [0..10]: %>
                   <option><%= i %></option>
                 <% end %>
               </select>
-              <span class='team-name'>Team <%= i %></span>
+              <span class='team-name'><%= game.team_one_name %></span>
             </span>
             <span class='versus'>VS</span>
             <span class='teams-row'>
-              <span class='team-name'>Team <%= i+1 %></span>
+              <span class='team-name'><%= game.team_two_name %></span>
               <select class='score'>
                 <% for i in [0..10]: %>
                   <option><%= i %></option>
@@ -34,4 +44,34 @@
       </ul>
     </div>
   </div>
+
+  <div class='panel panel-default pull-right teams-list'>
+    <div class='panel-heading'>
+      <div class='copy-to-clipboard pull-left'>
+        <a href='javascript:void(0)' id='copyTeams'>Copy</a>
+      </div>
+      <h3 class='panel-title'>
+        Teams List
+      </h3>
+    </div>
+    <div class='panel-body'>
+      <ul class='list-group'>
+        <% for team in @tournament.teams(): %>
+          <li class='list-group-item'>
+            <span class='game-number pull-left'><%= "#{team.name} :" %></span>
+            <span class='teams-row'>
+              <span class='team-name'>
+                <%= "#{team.players[0].first_name} #{team.players[0].last_name}" %>
+              </span>
+              <span class='versus'>&amp;</span>
+              <span class='team-name'>
+                <%= "#{team.players[1].first_name} #{team.players[1].last_name}" %>
+              </span>
+            </span>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
 </div>

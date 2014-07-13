@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140713114436) do
+ActiveRecord::Schema.define(version: 20140713143529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,20 @@ ActiveRecord::Schema.define(version: 20140713114436) do
 
   add_index "game_sessions", ["player_id", "team_id"], name: "index_game_sessions_on_player_id_and_team_id", unique: true, using: :btree
 
+  create_table "games", force: true do |t|
+    t.integer  "tournament_id",  null: false
+    t.integer  "team_one_id",    null: false
+    t.integer  "team_two_id",    null: false
+    t.integer  "team_one_score", null: false
+    t.integer  "team_two_score", null: false
+    t.integer  "winner_id"
+    t.integer  "position",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "games", ["tournament_id"], name: "index_games_on_tournament_id", using: :btree
+
   create_table "players", force: true do |t|
     t.string   "first_name", null: false
     t.string   "last_name"
@@ -35,11 +49,10 @@ ActiveRecord::Schema.define(version: 20140713114436) do
   end
 
   create_table "teams", force: true do |t|
-    t.string   "name",                      null: false
-    t.integer  "tournament_id",             null: false
+    t.string   "name",          null: false
+    t.integer  "tournament_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "score",         default: 0
   end
 
   add_index "teams", ["tournament_id"], name: "index_teams_on_tournament_id", using: :btree

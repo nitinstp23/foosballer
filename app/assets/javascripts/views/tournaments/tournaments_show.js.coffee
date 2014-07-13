@@ -4,8 +4,9 @@ class Foosballer.Views.TournamentsShow extends Backbone.View
   className: 'container'
   template:  JST['tournaments/show']
 
-  # events:
-  #   'click #create_tournament_link' : 'createTournament'
+  events:
+    'click #copyTeams'    : 'copyTeamsToClipboard'
+    'click #copySchedule' : 'copyScheduleToClipboard'
 
   initialize: (attributes) ->
     Foosballer.showLoading()
@@ -23,3 +24,11 @@ class Foosballer.Views.TournamentsShow extends Backbone.View
 
   hide: ->
     $(@el).hide()
+
+  copyTeamsToClipboard: (event) ->
+    event.preventDefault()
+    console.log $('.teams-list .panel-body ul').text();
+
+  copyScheduleToClipboard: (event) ->
+    event.preventDefault()
+    console.log $('.team-schedule .panel-body ul').text();

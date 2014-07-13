@@ -16,7 +16,7 @@ module Api
     end
 
     def show
-      @tournament = Tournament.includes(teams: :players).find(params[:id])
+      @tournament = Tournament.includes(games: [:team_one, :team_two], teams: :players).find(params[:id])
     end
 
     def create_teams
@@ -36,5 +36,6 @@ module Api
     def tournament_params
       params.require(:tournament).permit!
     end
+
   end
 end
