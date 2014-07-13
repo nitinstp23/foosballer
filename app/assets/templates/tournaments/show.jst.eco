@@ -1,0 +1,37 @@
+
+<div class='show_tournament_panel'>
+
+  <div class='panel panel-default pull-left team-schedule'>
+    <div class='panel-heading'>
+      <h3 class='panel-title'>
+        Current Schedule
+      </h3>
+    </div>
+    <div class='panel-body'>
+      <ul class='list-group'>
+        <% for i in [1..5]: %>
+          <li class='list-group-item'>
+            <span class='game-number pull-left'><%= "#{i})" %></span>
+            <span class='teams-row'>
+              <select class='score'>
+                <% for i in [0..10]: %>
+                  <option><%= i %></option>
+                <% end %>
+              </select>
+              <span class='team-name'>Team <%= i %></span>
+            </span>
+            <span class='versus'>VS</span>
+            <span class='teams-row'>
+              <span class='team-name'>Team <%= i+1 %></span>
+              <select class='score'>
+                <% for i in [0..10]: %>
+                  <option><%= i %></option>
+                <% end %>
+              </select>
+            </span>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

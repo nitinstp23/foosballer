@@ -151,6 +151,51 @@ footer {
   }
 }
 
+.show_tournament_panel {
+  width: 100%;
+  margin: auto;
+
+  .team-schedule {
+    width: 40%;
+    height: auto;
+    min-height: 150px;
+    margin: auto;
+    border-color: orange;
+    text-align: center;
+
+    .panel-heading {
+      background-color: orange;
+      border-color: orange;
+
+      .panel-title {
+        color: whitesmoke;
+      }
+    }
+
+    ul {
+      margin-bottom: 0;
+
+      li {
+        padding-left: 0;
+
+        .game-number {
+          margin-left: 30px;
+        }
+
+        .versus {
+          font-weight: bold;
+          text-decoration: underline;
+          color: $bg_color;
+        }
+
+        .team-name {
+          margin: 0 15px 0 15px;
+        }
+      }
+    }
+  }
+}
+
 .player {
   height: 100px;
   width: 100px;

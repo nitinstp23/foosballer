@@ -18,8 +18,9 @@ class Foosballer.Routers.Tournaments extends Backbone.Router
     view    = new Foosballer.Views.TournamentsNew(collection: players)
     @mainContainer.html(view.render().el)
 
-  show: (id) ->
-    console.log "Tournament #{id}"
+  show: (tournament_id) ->
+    view = new Foosballer.Views.TournamentsShow(tournament_id: tournament_id)
+    @mainContainer.html(view.render().el)
 
   createTeams: ->
     player_ids = _.map $('#current-pool .player .thumbnail'), (player) ->

@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  username: 'username'
+  password: 'password'
+
+development:
+  <<: *default
+  database: foosballer_development
+
+test:
+  <<: *default
+  database: foosballer_test
+
+production:
+  <<: *default
+  database: foosballer_production

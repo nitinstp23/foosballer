@@ -44,12 +44,15 @@ class Foosballer.Views.TournamentsTeams extends Backbone.View
   createTournament: (event) ->
     event.preventDefault()
     Foosballer.showLoading()
-    tournaments = new Foosballer.Collections.Tournaments()
-    tournament_model = new Foosballer.Models.Tournament(teams_attributes: @teamsAttributes())
+    tournament = new Foosballer.Models.Tournament(teams_attributes: @teamsAttributes())
 
-    tournaments.create(tournament_model,
-      wait : true
+    tournament.save(
+      null
+      wait: true
       success: (model, response, options) =>
         Foosballer.hideLoading()
         TOURNAMENTS_ROUTER.navigate("tournaments/#{response.id}", trigger: true)
+      error: (model, response, options) =>
+        Foosballer.hideLoading()
+        TOURNAMENTS_ROUTER.navigate('tournaments', trigger: true)
     )

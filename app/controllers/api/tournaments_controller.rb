@@ -8,11 +8,15 @@ module Api
     def create
       tournament = Tournament.new(tournament_params)
 
-      if tournament.save!
+      if tournament.save
         render json: { id: tournament.id }
       else
         render json: { error: tournament.errors.full_messages }, status: 500
       end
+    end
+
+    def show
+      @tournament = Tournament.includes(teams: :players).find(params[:id])
     end
 
     def create_teams

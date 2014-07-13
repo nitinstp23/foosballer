@@ -1,5 +1,5 @@
 class Foosballer.Models.Tournament extends Backbone.Model
-  url: '/api/tournaments'
+  urlRoot: '/api/tournaments'
 
   toJSON: ->
     tournament: @attributes
