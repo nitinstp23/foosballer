@@ -217,6 +217,7 @@ footer {
   }
 }
 
+.finish-tournament-button,
 .create-teams-button {
   text-align: center;
 
@@ -269,17 +270,16 @@ footer {
 .copy-to-clipboard {
   font-size: 12px;
 
-  a {
+  #copyTeams {
     border-radius: 2px;
     background-color: #fff;
     text-decoration: none;
     color: orange;
     padding: 2px;
-
-    &:hover {
-      color: white !important;
-      background-color: $bg_color;
-    }
   }
 
+  .hover {
+    color: white !important;
+    background-color: $bg_color !important;
+  }
 }

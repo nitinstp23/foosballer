@@ -4,10 +4,6 @@ class Foosballer.Views.TournamentsShow extends Backbone.View
   className: 'container'
   template:  JST['tournaments/show']
 
-  events:
-    'click #copyTeams'    : 'copyTeamsToClipboard'
-    'click #copySchedule' : 'copyScheduleToClipboard'
-
   initialize: (attributes) ->
     Foosballer.showLoading()
 
@@ -16,7 +12,8 @@ class Foosballer.Views.TournamentsShow extends Backbone.View
       success: =>
         Foosballer.hideLoading()
         @render()
-
+        @addTooltip()
+        @copyTeamsToClipboard()
 
   render: ->
     $(@el).html @template(tournament: @model)
@@ -25,10 +22,22 @@ class Foosballer.Views.TournamentsShow extends Backbone.View
   hide: ->
     $(@el).hide()
 
-  copyTeamsToClipboard: (event) ->
-    event.preventDefault()
-    console.log $('.teams-list .panel-body ul').text();
+  copyTeamsToClipboard: ->
+    $('#copyTeams').zclip
+      path:
+        'assets/ZeroClipboard.swf'
+      copy: ->
+        teams = []
+        for team in $('.teams-list .panel-body ul li')
+          team_name = $(team).find('.game-number').text().replace(/^\s+|\s+$/g, "")
+          players   = $(team).find('.teams-row .team-name')
+          players   = ($(player).text().replace(/^\s+|\s+$/g, "") for player in players)
+          teams.push "#{team_name} #{players.join(' & ')}"
+        teams.join('\n')
+      afterCopy: (event) ->
 
-  copyScheduleToClipboard: (event) ->
-    event.preventDefault()
-    console.log $('.team-schedule .panel-body ul').text();
+
+  addTooltip: ->
+    $('.copy-to-clipboard').tooltip
+      title: 'Copy to clipboard'
+      placement: 'left'
