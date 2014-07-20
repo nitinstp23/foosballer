@@ -16,7 +16,7 @@ module Api
     end
 
     def show
-      @tournament = Tournament.includes(games: [:team_one, :team_two], teams: :players).find(params[:id])
+      @tournament = find_tournament(params[:id])
     end
 
     def create_teams
@@ -29,6 +29,16 @@ module Api
       end
     end
 
+    def update
+      @tournament = find_tournament(params[:id])
+
+      if @tournament.update(tournament_params)
+        render json: { id: @tournament.id }
+      else
+        render json: { error: @tournament.errors.full_messages }, status: 500
+      end
+    end
+
     private
 
     INDEX_LIMIT = 15
@@ -37,5 +47,8 @@ module Api
       params.require(:tournament).permit!
     end
 
+    def find_tournament(id)
+      Tournament.includes(games: [:team_one, :team_two], teams: :players).find(id)
+    end
   end
 end

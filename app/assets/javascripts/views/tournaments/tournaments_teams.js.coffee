@@ -1,4 +1,4 @@
-class Foosballer.Views.TournamentsTeams extends Backbone.View
+class Foosballer.Views.TournamentsTeams extends Foosballer.Views.Base
 
   id:        'tournament_teams_section'
   className: 'container'
@@ -21,9 +21,6 @@ class Foosballer.Views.TournamentsTeams extends Backbone.View
   render: ->
     $(@el).html @template(teams: @teams)
     this
-
-  hide: ->
-    $(@el).hide()
 
   # teams_attributes:
   #   name: 'Team One', game_sessions_attributes: [{player_id: 1}, {player_id: 2}]

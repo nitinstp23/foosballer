@@ -1,4 +1,4 @@
-class Foosballer.Views.TournamentsIndex extends Backbone.View
+class Foosballer.Views.TournamentsIndex extends Foosballer.Views.Base
 
   id:        'tournaments_section'
   className: 'container'
@@ -22,6 +22,3 @@ class Foosballer.Views.TournamentsIndex extends Backbone.View
     event.preventDefault()
     @hide()
     TOURNAMENTS_ROUTER.navigate('tournaments/new', trigger: true)
-
-  hide: ->
-    $(@el).hide()

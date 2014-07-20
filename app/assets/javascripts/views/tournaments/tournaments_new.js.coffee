@@ -1,4 +1,4 @@
-class Foosballer.Views.TournamentsNew extends Backbone.View
+class Foosballer.Views.TournamentsNew extends Foosballer.Views.Base
 
   id:        'new_tournament_section'
   className: 'container'
@@ -18,9 +18,6 @@ class Foosballer.Views.TournamentsNew extends Backbone.View
     $(@el).html @template(players: @collection.models)
     @dragAndDrop()
     this
-
-  hide: ->
-    $(@el).hide()
 
   buildTeams: (event) ->
     event.preventDefault()

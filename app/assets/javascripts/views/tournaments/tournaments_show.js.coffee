@@ -1,8 +1,11 @@
-class Foosballer.Views.TournamentsShow extends Backbone.View
+class Foosballer.Views.TournamentsShow extends Foosballer.Views.Base
 
   id:        'tournament_show_section'
   className: 'container'
   template:  JST['tournaments/show']
+
+  events: ->
+    'click #finish_tournament_link' : 'finish'
 
   initialize: (attributes) ->
     Foosballer.showLoading()
@@ -19,8 +22,37 @@ class Foosballer.Views.TournamentsShow extends Backbone.View
     $(@el).html @template(tournament: @model)
     this
 
-  hide: ->
-    $(@el).hide()
+  # games_attributes:
+  #   id: 1
+  #   team_one_score: 0
+  #   team_two_score: 0
+  gamesAttributes: ->
+    attributes = []
+    games      = $(@el).find('.show_tournament_panel .team-schedule li')
+    for game in games
+      game_id = $(game).find('.game-number').id
+      attributes.push
+        id: game_id
+        team_one_score: 0
+        team_two_score: 0
+
+    attributes
+
+  finish: ->
+    event.preventDefault()
+    Foosballer.showLoading()
+    tournament = new Foosballer.Models.Tournament(teams_attributes: @teamsAttributes())
+
+    tournament.save(
+      null
+      wait: true
+      success: (model, response, options) =>
+        Foosballer.hideLoading()
+        TOURNAMENTS_ROUTER.navigate("tournaments/#{response.id}", trigger: true)
+      error: (model, response, options) =>
+        Foosballer.hideLoading()
+        TOURNAMENTS_ROUTER.navigate('tournaments', trigger: true)
+    )
 
   copyTeamsToClipboard: ->
     $('#copyTeams').zclip
